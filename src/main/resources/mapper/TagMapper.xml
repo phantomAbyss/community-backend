@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wy.community.dao.TagDao">
+
+    <!-- insert插入的字段信息 -->
+    <sql id="insertFields">
+        parent_id, tag_name, status
+    </sql>
+    <!-- select插入的字段信息 -->
+    <sql id="selectFields">
+        id, parent_id, tag_name, status
+    </sql>
+
+    <!-- 插入一个tag -->
+    <insert id="insertTag" parameterType="Tag" keyProperty="id">
+        insert into tag(<include refid="insertFields"></include>)
+        values (#{parentId}, #{tagName}, #{status})
+    </insert>
+
+</mapper>

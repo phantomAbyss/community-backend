@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wy.community.dao.JobDao">
+    <!-- 插入数据的字段 -->
+    <sql id="insertFields">
+        user_id, company, position, industry
+    </sql>
+    <!-- 查询数据的字段 -->
+    <sql id="selectFields">
+        id, user_id, company, position, industry
+    </sql>
+
+    <!-- 插入用户的数据 -->
+    <insert id="insertJobInfo" parameterType="JobInfo" keyProperty="id">
+        insert into job_info(<include refid="insertFields"></include>)
+        values (#{userId}, #{company}, #{position}, #{industry})
+    </insert>
+
+</mapper>

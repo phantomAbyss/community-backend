@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wy.community.dao.BaseDao">
+    <!-- 插入用户baseinfo信息的字段 -->
+    <sql id="insertFields">
+        user_id, real_name, area, description, birthday, start_work, update_time
+    </sql>
+    <!-- 查询用户baseinfo的所有字段信息-->
+    <sql id="selectFields">
+        id, user_id, real_name, area, description, birthday, start_work, update_time
+    </sql>
+    
+    <insert id="insertBaseInfo" parameterType="BaseInfo" keyProperty="id">
+        insert into base_info(<include refid="insertFields"></include>)
+        values(#{userId}, #{realName}, #{area}, #{description}, #{birthday}, #{startWork}, #{updateTime})
+    </insert>
+</mapper>

@@ -1,0 +1,48 @@
+# 应用服务WEB访问端口
+server:
+  port: 8081
+
+spring:
+  application:
+    name: community # 应用名称
+  datasource:
+    # 数据库驱动
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 数据源的名称
+    name: community
+    # 数据库连接地址
+    url: jdbc:mysql://192.168.25.131:3306/community?serverTimezone=UTC
+    # 数据库的用户名和密码
+    username: root
+    password: phantom
+
+# mybatis的配置信息，即修改MybatisProperties.java文件的配置信息
+mybatis:
+  # 映射文件的存放位置
+  mapper-locations: classpath:mapper/*Mapper.xml
+  # 指明实体类的位置，和数据库中相映射
+  type-aliases-package: com.wy.community.model
+  configuration:
+    # 启用主键自增长
+    use-generated-keys: true
+    # 保证数据库的下划线分开的字段和驼峰式命名可以匹配
+    map-underscore-to-camel-case: true
+# 配置mybatis的SQL的显示信息
+logging:
+  level:
+    com:
+      wy:
+        community:
+          dao: debug
+
+# 模拟数据获取的连接
+base-url:  http://192.168.25.131:7300/mock/6035b2205dbcac001d776bbb/community
+api-name:
+  profile-name: /api/data/profile
+
+# http请求的配置信息
+community:
+  data:
+    connection-request-timeout: 3000
+    connection-timeout: 3000
+    read-timeout: 3000
