@@ -19,4 +19,9 @@
         select <include refid="selectFields"></include> from user_info where id = #{id}
     </select>
 
+    <select id="getUserInfoByLoginName" resultType="UserInfo">
+        select <include refid="selectFields"></include> from user_info
+        where mobile = #{loginName} or email = #{loginName}
+    </select>
+
 </mapper>

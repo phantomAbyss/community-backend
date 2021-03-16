@@ -46,3 +46,9 @@ community:
     connection-request-timeout: 3000
     connection-timeout: 3000
     read-timeout: 3000
+
+# 阿里短信的AccessKey ID和AccessKey Secret
+aliyun-sms:
+  AccessKey-ID: LTAI4GJz73gt95Dge36kC9yy
+  AccessKey-Secret: Ffj5JcaIfHuHFVutfyg32vx1kkftF2
+  signName: community

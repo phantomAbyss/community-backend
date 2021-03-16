@@ -26,6 +26,9 @@ public class UserInfo {
     /* 用户邮箱 */
     private String email;
 
+    /* 用户手机 */
+    private String mobile;
+
     /* 用户性别：0-男，1-女 */
     private Integer gender;
 
